@@ -6,6 +6,7 @@ public class MainP {
 	public static void main(String []args){
 		ArrayList<String> lista = new ArrayList<>();
 		
+		
 		 try(FileReader fileReader = new FileReader("Numeros.txt")){
 		        int caracterLeido = fileReader.read();
 		        while(caracterLeido!= -1) {
@@ -55,11 +56,29 @@ public class MainP {
 			 }*/
 		// MERGE SORT------------
 		 
-		 Sorting<Integer> quick = new Sorting<Integer>();
-		 quick.quicksort(numeros, 0, numeros.length - 1);
+		 
+		 /*
+		 // QUICK SORT-------------------
+//		 Sorting<Integer> quick = new Sorting<Integer>();
+//		 quick.quicksort(numeros, 0, numeros.length - 1);
+//		 for (int i = 0; i< 3000;i++) {
+//			 System.out.println(numeros[i]);
+//			 }*/
+		 
+		 
+		 /*
+		  * RADIX SORT-----------------------
+		  */
+		 RadixSort sorts = new RadixSort();
+		 sorts.radixSort(numeros);
 		 for (int i = 0; i< 3000;i++) {
 			 System.out.println(numeros[i]);
 			 }
-
+		 
+		 
+		 
+		 
+		 
+		 
 	}
 }

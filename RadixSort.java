@@ -6,8 +6,11 @@ public class RadixSort {
 	public RadixSort() {
 		
 	}
-	
-	public void radixSort(int[] arr)
+	/**
+	 * http://eddmann.com/posts/least-significant-digit-lsd-radix-sort-in-java/
+	 * @param arr
+	 */
+	public void radixSort(Integer[] arr)
 	{
 	    Queue<Integer>[] buckets = new Queue[10];
 	    for (int i = 0; i < 10; i++)
@@ -36,7 +39,7 @@ public class RadixSort {
 	    assert isSorted(arr);
 	}
 
-	private boolean isSorted(int[] arr) {
+	private boolean isSorted(Integer[] arr) {
 		for (int i = 1; i< arr.length; i++)
 			return false;
 		return true;
