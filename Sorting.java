@@ -1,7 +1,10 @@
 import java.lang.reflect.Array;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Sorting<E extends Comparable<E>>  {
-	public void GnomeSort (E[] list) {
+
+	public void gnomeSort (E[] list) {
 		int i=1;
 		  int j=2;
 		 
@@ -15,11 +18,10 @@ public class Sorting<E extends Comparable<E>>  {
 		      list[i--] = tmp;
 		      i = (i==0) ? j++ : i;
 		    }
+		}  
 	}
-		  
-		  
-	}
-	public void merge(Class<E> lis, E[] list, int izq, int m, int der){
+
+	private void merge(Class<E> lis, E[] list, int izq, int m, int der){
 		E B[] = (E[]) Array.newInstance(lis, list.length);
 		   int i, j, k;
 		   //array auxiliar
@@ -28,7 +30,7 @@ public class Sorting<E extends Comparable<E>>  {
 
 		   i=izq; j=m+1; k=izq;
 		     
-		   while (i<=m && j<=der) //copia el siguiente elemento más grande                                      
+		   while (i<=m && j<=der) //copia el siguiente elemento mï¿½s grande                                      
 		          if (B[i].compareTo(B[j])<=0)
 		              list[k++]=B[i++];
 		          else
@@ -37,6 +39,7 @@ public class Sorting<E extends Comparable<E>>  {
 		   while (i<=m)         //copia los elementos que quedan de la
 		         list[k++]=B[i++]; //primera mitad (si los hay)
 		}
+
 	public void mergesort(Class<E> lis,E[] list,int izq, int der){
 	    if (izq < der){
 	            int m=(izq+der)/2;
@@ -49,11 +52,11 @@ public class Sorting<E extends Comparable<E>>  {
 	public  void quicksort(E[] list, int izq, int der) {
 
 		  E pivote=list[izq]; // tomamos primer elemento como pivote
-		  int i=izq;         // i realiza la búsqueda de izquierda a derecha
-		  int j=der;         // j realiza la búsqueda de derecha a izquierda
+		  int i=izq;         // i realiza la bï¿½squeda de izquierda a derecha
+		  int j=der;         // j realiza la bï¿½squeda de derecha a izquierda
 		  E aux;
 		 
-		  while(i < j){                          // mientras no se crucen las búsquedas                                   
+		  while(i < j){                          // mientras no se crucen las bï¿½squedas                                   
 		     while(list[i].compareTo(pivote)<=0 && i < j) i++; // busca elemento mayor que pivote
 		     while(list[j].compareTo(pivote)>0) j--;           // busca elemento menor que pivote
 		     if (i < j) {                        // si no se han cruzado                      
@@ -72,6 +75,45 @@ public class Sorting<E extends Comparable<E>>  {
 		      quicksort(list,j+1,der);          // ordenamos subarray derecho
 		   
 		}
+	
+	/**
+	 * http://eddmann.com/posts/least-significant-digit-lsd-radix-sort-in-java/
+	 * @param arr
+	 */
+	public void radixSort(Integer[] arr)
+	{
+	    Queue<Integer>[] buckets = new Queue[10];
+	    for (int i = 0; i < 10; i++)
+	        buckets[i] = new LinkedList<Integer>();
+
+	    boolean sorted = false;
+	    int expo = 1;
+
+	    while ( ! sorted) {
+	        sorted = true;
+
+	        for (int item : arr) {
+	            int bucket = (item / expo) % 10;
+	            if (bucket > 0) sorted = false;
+	            buckets[bucket].add(item);
+	        }
+
+	        expo *= 10;
+	        int index = 0;
+
+	        for (Queue<Integer> bucket : buckets)
+	            while ( ! bucket.isEmpty())
+	                arr[index++] = bucket.remove();
+	    }
+
+	    assert isSorted(arr);
+	}
+
+	private boolean isSorted(Integer[] arr) {
+		for (int i = 1; i< arr.length; i++)
+			return false;
+		return true;
+	}
 	
 	public void heapSort(E[] list)
     {
@@ -96,7 +138,7 @@ public class Sorting<E extends Comparable<E>>  {
   
     // To heapify a subtree rooted with node i which is
     // an index in arr[]. n is size of heap
-    void heapify(E [] list, int n, int i)
+    private void heapify(E [] list, int n, int i)
     {
         int largest = i;  // Initialize largest as root
         int l = 2*i + 1;  // left = 2*i + 1
