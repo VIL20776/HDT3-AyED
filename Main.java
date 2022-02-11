@@ -18,7 +18,7 @@ public class Main{
 		String numeros = "";
 		String numCadena = "";
 		
-		for(int i =1; i <= 3000; i = i + 1) {
+		for(int i =1; i <= 5000; i = i + 1) {
 			value = random.nextInt(max + min) + min;
 			numCadena= String.valueOf(value);
 			numeros = numeros+ numCadena +",";

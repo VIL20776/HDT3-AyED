@@ -41,47 +41,5 @@ public class MainP {
                     break;
             }
         }
-		
-		 /*
-		 //  GNOME SORT---------------
-		 Sorting<Integer> gnome = new Sorting<Integer>();
-		 gnome.GnomeSort(numeros);
-		 
-		 for (int i = 0; i< 3000;i++) {
-			 System.out.println(numeros[i]);
-		//  GNOME SORT---------------
-		 }*/
-		 
-		//  for (int i = 0; i< 3000;i++) {
-		// 	 System.out.println(numeros[i]);
-		// 	 }
-		 
-		 // MERGE SORT------------
-		 /*
-		 Sorting<Integer> merge = new Sorting<Integer>();
-		 merge.mergesort(Integer.class, numeros, 0, 2999);
-		 for (int i = 0; i< 3000;i++) {
-			 System.out.println(numeros[i]);
-			 }*/
-		// MERGE SORT------------
-		 
-		 
-		 /*
-		 // QUICK SORT-------------------
-//		 Sorting<Integer> quick = new Sorting<Integer>();
-//		 quick.quicksort(numeros, 0, numeros.length - 1);
-//		 for (int i = 0; i< 3000;i++) {
-//			 System.out.println(numeros[i]);
-//			 }*/
-		 
-		 
-		 /*
-		  * RADIX SORT-----------------------
-		  */
-		//  RadixSort sorts = new RadixSort();
-		//  sorts.radixSort(numeros);
-		//  for (int i = 0; i< 3000;i++) {
-		// 	 System.out.println(numeros[i]);
-		// 	 }
 	}
 }
